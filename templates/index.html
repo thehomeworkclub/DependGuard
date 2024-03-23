@@ -1,56 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="cupcake">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DependGuard</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
 
-  <div class="text-center my-5 px-10">
-    <article class="prose lg:prose-xl">
-      <h1 class="text-9xl font-bold">DependGuard</h1>
-    </article>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DependGuard</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    <p class="py-10">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-      Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-      sed, dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-      non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-      ultricies sed, dolor. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet,
-      adipiscing nec, ultricies sed, dolor. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,
-      dignissim sit amet, adipiscing nec, ultricies sed, dolor. Lorem ipsum
-      dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-      lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
-    </p>
-  </div>
-  <body>
-    <div class="container mx-auto p-4">
-      <div class="flex justify-center items-center flex-col my-10">
-        <div class="flex gap-2 pt-2 px-2">
-          <input
-            type="text"
-            placeholder="Enter GitHub repo URL"
-            class="input input-bordered w-full max-w-xs"
-          /><button class="btn btn-primary">Submit</button>
-        </div>
-        <article>
-          <h1 class="text-3xl py-5">Or...</h1>
-        </article>
-        <div class="flex-1 text-right py-4">
-          <input
-            type="file"
-            class="file-input file-input-bordered w-full max-w-xs"
-          />
-        </div>
+<div class="text-center my-5 px-10">
+  <article class="prose lg:prose-xl">
+    <h1 class="text-9xl font-bold">DependGuard</h1>
+  </article>
+
+  <p class="py-10" id="">
+    Your one-stop solution for securing your project's dependencies. 
+    <br>
+    <br>
+    DependGuard helps you keep your dependencies up-to-date and secure by scanning your project's dependencies for vulnerabilities and providing you with a detailed report, including replacements, possible exploits, and patches for those exploits. Try Us Out! 
+  </p>
+</div>
+
+<body>
+
+  <div class="container mx-auto p-4">
+    <div class="flex justify-center items-center flex-row my-8 gap-10">
+      <div class="flex pt-1 join">
+        <input type="text" placeholder="Enter GitHub repo URL" class="input input-bordered w-full max-w-xs join-item" />
+        <button
+          class="btn btn-primary join-item">Submit</button>
+      </div>
+      <div class="text-3xl py-4 divider divider-horizontal max-w-xs">OR</div>
+      <div class="text-right py-4">
+        <input type="file" class="file-input file-input-bordered  max-w-xs" />
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
