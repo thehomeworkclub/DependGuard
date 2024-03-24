@@ -1,31 +1,54 @@
-# DependGuard
-Our Project for the 2024 CrackTheCode Hackathon @ Concordia University.
+## DependGuard: Secure Your GitHub Projects with Comprehensive Dependency Analysis and Community Insights
 
-DependGuard is a powerful tool designed to enhance the security of your GitHub projects by analyzing dependencies and providing valuable insights. With DependGuard, you can ensure that your project's dependencies are up-to-date, secure, and free from vulnerabilities. DependGuard is aimed at improving the usability and user experience involved with OSS (Open Source Softwares). In an era where open-source software (OSS) dominates development landscapes, the need to ensure the integrity and security of these projects directly correlates to success.
+**DependGuard** is a powerful tool designed to enhance the security of your GitHub projects by going beyond just analyzing dependencies. We provide valuable insights into the **community health and activity** behind your dependencies, giving you a holistic view of your project's security posture. 
 
-## **THE PROBLEM:** 
-Many open source softwares have a key issue; since the software isn't extremely profitable, there may not be enough or support in the community behind the software. Using outdated packages expose vulnerabilities that can range from a small error in coding to a complete compromise of the software and its users.
+**Our Mission:** To improve the usability and user experience involved with Open Source Software (OSS) by addressing critical cybersecurity flaws and promoting transparency within the OSS community.
 
-For example, there is a known vulnerability in the Django package from 1 week ago. Since Django handles complex web tasks such as creating frameworks and databases, this could have compromised many websites on the internet. Such websites could have been dealing with critical sensitive information, such as personal details of their users. Although it was not a serious vulnerablity in the package, it still proves that this issue is a very real reality even for large softwares with large communities. This issue's severity and magnitude increases exponentially when there is a smaller community and a smaller number of users.
+## The Problem
 
-This is a very real issue. Famous examples include Log4j and PyTorch which all had extreme vulnerabilities that were exploited and ultimately affected millions using such softwares in their projects. One small compromise in a project can affect the entire project.
+Many open-source projects face a significant challenge: due to their non-profit nature, they may lack sufficient community support and resources. This can lead to the use of outdated packages and vulnerabilities that go unnoticed, especially in transitive dependencies (dependencies of dependencies). 
 
-## **STATEMENT OF PURPOSE:**
-Our software wishes to address critical cybersecurity flaws that can be observed in the current OSS community.
+DependGuard tackles this issue head-on by providing a comprehensive solution that analyzes not only the code but also the **team behind the code**. We assess the community health of your dependencies using the **CHAOSS metrics**:
 
-## **FEATURES**
-- Dependency Analysis: DependGuard thoroughly examines your project's dependencies, identifying potential security vulnerabilities.
-- Security Insights: Receive detailed reports on vulnerabilities found in your project's dependencies, along with recommendations for remediation.
-- Ease-of-use: The website is an ad-hoc tool that is all hosted on a website. The use of DaisyUI enables it to have a modern design while being just as effective. It identifies the community score, the dependency score, and many other statistics. If a vulnerability is found, all known fixes in the community are provided on the website. All information, necessary or not, is found and reported to the user.
-- Privacy: There is no data collected on the user and everything is entirely open source. It does not need to be installed on the user's device in order to function.
-- Universality: We use multilpe APIs and databases to create a functional project that covers everything AND MORE that other existing solutions use. It supports input via GitHub links or various file formats like requirements.txt. Users do not need to do anything in addition to their project other than simply providing the necessary information that they should already know. 
+- **Strategy:** How well-defined is the project's roadmap and vision?
+- **Governance:** Are there clear decision-making processes and contribution guidelines?
+- **Community:** How active and engaged is the community?
+- **Compliance/Security:** Does the project have security policies and practices in place?
 
-## **HOW ARE WE UNIQUE?**
-One of the most direct comparisons of our project to an existing one is called DependaBot. It automatically creates pull requests to update repositories when a new one is available but it fails to have basic cybersecurity elements. 
-Blackduck finds vulnerabilities but it won't tell you how active the community is. Our project isn't a static code analyzer like black duck. It's meant to provide all the information possible, and expose underlying issues like in transitive dependencies that Blackduck may not detect. Our project is exclusively open source and costs nothing to open source users, enabling and improving the open source community. 
+By evaluating these metrics, DependGuard helps you identify dependencies that might be at risk due to low community activity or poor security practices.
 
-## **STEPS TO USE:**
-1. Access the webpage.
-2. Upload a github link or a specific file specifying repositories and packages needed.
-3. Submit to the website for processing.
-4. Look at the results and fix vulnerabilities found.
+## Features
+
+- **Dependency Analysis:** DependGuard thoroughly examines your project's dependencies, identifying potential security vulnerabilities and outdated packages.
+- **Security Insights:** Receive detailed reports on vulnerabilities found in your project's dependencies, along with recommendations for remediation and available fixes.
+- **Community Health Assessment:** DependGuard analyzes the community behind each dependency using the CHAOSS metrics, providing insights into the project's activity, governance, and security practices.
+- **Ease-of-Use:** Our user-friendly web interface makes it easy to analyze your projects. Simply provide a GitHub link or upload a dependency file, and DependGuard does the rest.
+- **Privacy:** We value your privacy. No user data is collected, and the entire project is open-source. You don't need to install anything on your device.
+- **Universality:** DependGuard supports input via GitHub links or various file formats like `requirements.txt`. It leverages multiple APIs and databases to provide comprehensive coverage.
+
+## How We Are Unique
+
+DependGuard goes beyond traditional dependency analysis tools by incorporating community health assessment. This unique approach provides a more holistic view of your project's security posture, allowing you to make informed decisions about the dependencies you use.
+
+## Steps to Use DependGuard
+
+1. **Access the Webpage:** Visit the DependGuard website (link to be provided).
+2. **Provide Project Information:** Upload a GitHub link or a dependency file (e.g., `requirements.txt`).
+3. **Submit for Processing:** Click the submit button to initiate the analysis.
+4. **Review Results and Take Action:** DependGuard will present you with a detailed report on your project's dependencies, including vulnerabilities, community scores based on CHAOSS metrics, and recommendations for remediation. Take the necessary steps to address any identified issues.
+
+## Troubleshooting Guidance
+
+- **API Rate Limits:** If you encounter rate limit errors, DependGuard will automatically switch to a different API key. However, if all keys are exhausted, you may need to wait before retrying.
+- **Missing Information:** In some cases, DependGuard may not be able to retrieve all information about a dependency. This could be due to limitations in the underlying APIs or databases.
+- **Incorrect Results:** If you believe the results are inaccurate, please double-check the provided project information and consider reporting the issue to the DependGuard team.
+
+## Contributing
+
+DependGuard is an open-source project, and we welcome contributions from the community. If you'd like to get involved, please refer to the contributing guidelines on our GitHub repository.
+
+## Contact
+
+For any questions or feedback, feel free to reach out to the DependGuard team through our GitHub repository or website contact form.
+
+We hope DependGuard empowers you to build more secure and reliable OSS projects!
