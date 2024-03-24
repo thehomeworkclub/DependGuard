@@ -32,7 +32,7 @@ DependGuard goes beyond traditional dependency analysis tools by incorporating c
 
 ## Steps to Use DependGuard
 
-1. **Access the Webpage:** Visit the DependGuard website (link to be provided).
+1. **Access the Webpage:** Visit the DependGuard website.
 2. **Provide Project Information:** Upload a GitHub link or a dependency file (e.g., `requirements.txt`).
 3. **Submit for Processing:** Click the submit button to initiate the analysis.
 4. **Review Results and Take Action:** DependGuard will present you with a detailed report on your project's dependencies, including vulnerabilities, community scores based on CHAOSS metrics, and recommendations for remediation. Take the necessary steps to address any identified issues.
@@ -45,7 +45,7 @@ DependGuard goes beyond traditional dependency analysis tools by incorporating c
 
 ## Contributing
 
-DependGuard is an open-source project, and we welcome contributions from the community. If you'd like to get involved, please refer to the contributing guidelines on our GitHub repository.
+DependGuard is an open-source project, and we welcome contributions from the community. If you'd like to get involved, please reach out to us via that contanct information on our team's website.
 
 ## Meet The Team
 Left Most - Priansh Mittra, Database manager and backend engineer
@@ -60,6 +60,6 @@ Rightmost - Andy Zhang, Media coordinator and frontend engineer
 
 ## Contact
 
-For any questions or feedback, feel free to reach out to the DependGuard team through our GitHub repository or website contact form.
+For any questions or feedback, feel free to reach out to the DependGuard team through our GitHub repository or the contact information on our team's website.
 
 We hope DependGuard empowers you to build more secure and reliable OSS projects!
