@@ -10,10 +10,10 @@ Many open-source projects face a significant challenge: due to their non-profit 
 
 DependGuard tackles this issue head-on by providing a comprehensive solution that analyzes not only the code but also the **team behind the code**. We assess the community health of your dependencies using the **CHAOSS metrics**:
 
-- **Strategy:** How well-defined is the project's roadmap and vision?
-- **Governance:** Are there clear decision-making processes and contribution guidelines?
-- **Community:** How active and engaged is the community?
-- **Compliance/Security:** Does the project have security policies and practices in place?
+- **[Strategy:](https://chaoss.community/kb/metrics-model-oss-project-viability-strategy/)** How well-defined is the project's roadmap and vision?
+- **[Governance:](https://chaoss.community/kb/metrics-model-oss-project-viability-governance/)** Are there clear decision-making processes and contribution guidelines?
+- **[Community:](https://chaoss.community/kb/metrics-model-oss-project-viability-community/)** How active and engaged is the community?
+- **[Compliance/Security:](https://chaoss.community/kb/metrics-model-oss-project-viability-compliance-security/)** Does the project have security policies and practices in place?
 
 By evaluating these metrics, DependGuard helps you identify dependencies that might be at risk due to low community activity or poor security practices.
 
