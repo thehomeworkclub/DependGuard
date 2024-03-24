@@ -11,12 +11,16 @@ import keys
 # 2 - Ratelimit Exceeded for All Keys
 # 3 - Im not going to fix this
 complete = []
+deps = []
 api_key = keys.keylist
 current_index = 0
-def get_dep_tree(library, version):
+current_recursive = 0
+def get_dep_tree(library, version, pkgmngr="pypi"):
+    print("[LOG] RUNNING GET_DEP_TREE ON " + library + "@" + version)
     global current_index
     global complete
-    requrl = f"https://libraries.io/api/pypi/{library}/{version}/dependencies?api_key={api_key[current_index]}"
+    # TODO: Check if in db, if yes then dont run, if no then run (main pkg)
+    requrl = f"https://libraries.io/api/{pkgmngr}/{library}/{version}/dependencies?api_key={api_key[current_index]}"
     resp = requests.get(requrl)
     if resp.status_code == 429:
         if current_index >= (len(api_key)-1):
@@ -42,10 +46,9 @@ def get_dep_tree(library, version):
                         pages = " ".join(resp1["Link"].split(dela))
                     pages = pages.split()[2].strip(">").strip("<").split("&")[2].split("=")[1]
                     rejs_list.append([items["project_name"], str(items["latest_stable"]), str(pages), str(new_call["latest_release_published_at"])])
-                    print(pages)
                 except:
                     pages = None
-                rejs_list.append([items["project_name"], str(items["latest_stable"]), str(pages), str(None)])
+                    rejs_list.append([items["project_name"], str(items["latest_stable"]), str(pages), str(None)])
         Dblk.create(package=library, subdeps=rejs_list)
         complete.append(library)
         for items in rejs_list:
@@ -56,4 +59,24 @@ def get_dep_tree(library, version):
         return 1
     except:
         pass
-print(get_dep_tree("matplotlib", "3.7.5"))
+def get_flat_tree(library):
+    global deps
+    global current_recursive
+    if current_recursive == 0:
+        deps = []
+    get_mod = list(Dblk.select().where(Dblk.package == library).dicts())
+    if len(list(get_mod)) > 0:
+        for items in list(get_mod[0]["subdeps"]):
+            if items not in deps:
+                deps.append(items)
+            current_recursive+=1
+            get_flat_tree(items[0])
+        current_recursive = 0
+        return deps
+    else:
+        pass
+
+# TEST ITEMS
+# print(get_dep_tree("flask", "latest"))
+# print(get_flat_tree("flask"))
+# print(get_flat_tree("matplotlib"))

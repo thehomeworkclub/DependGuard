@@ -13,6 +13,7 @@ class BaseModel(Model):
 class Dblk(BaseModel):
     package = CharField(null=True)
     subdeps = AnyField(null=True)
+    # TODO: Create version itemary and enter it in
 
     class Meta:
         table_name = 'dblk'

@@ -19,22 +19,22 @@
     </div>
     <div class="flex flex-col">
         <div class="h-48 flex flex-row-reverse space-x-8 space-x-reverse items-center justify-center px-8 pt-8">
-            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;" id="card">
-                <div class="card-title" id="LibName">Lib Name</div>
-                <div class="card-body p-0 m-0" id="LibVersion">
+            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;" name="card">
+                <div class="card-title" name="LibName">Lib Name</div>
+                <div class="card-body p-0 m-0" name="LibVersion">
                     Lib Version
                 </div>
                 <div class="justify-center items-center text-center">
                     <button class="btn w-1/3" onclick="my_modal_1.showModal()">More Details</button>
                     <dialog id="my_modal_1" class="modal">
                         <div class="modal-box">
-                            <a class="font-bold text-lg" href="hi" id="LibNameLinked">Hyperlinked Lib name with version</a>
+                            <a class="font-bold text-lg" href="hi" name="LibNameLinked">Hyperlinked Lib name with version</a>
                             <p class="py-4">Oldest Transitive Dependencies:</p>
-                            <p class="text-sm py-0" id="OldestTransitiveDependency">info here</p>
+                            <p class="text-sm py-0" name="OldestTransitiveDependency">info here</p>
                             <p class="py-4">Last Update:</p>
-                            <p class="text-sm py-0" id="LastUpdate">date here</p>
+                            <p class="text-sm py-0" name="LastUpdate">date here</p>
                             <p class="py-4">Contributors:</p>
-                            <p class="text-sm py-0" id="Contributors">names</p>
+                            <p class="text-sm py-0" name="Contributors">names</p>
                         </div>
                         <form method="dialog" class="modal-backdrop">
                             <button>close</button>
@@ -46,17 +46,17 @@
                             <div class="flex-col">
                                 <h3 class="font-bold text-lg">Vulnerabilities</h3>
                                 <p class="py-4">CVE ID</p>
-                                <p class="text-sm py-0" id="CVEID">info here</p>
+                                <p class="text-sm py-0" name="CVEID">info here</p>
                                 <p class="py-4">Vulnerability Description</p>
-                                <p class="text-sm py-0" id="VulnerabilityDescription">info here</p>
+                                <p class="text-sm py-0" name="VulnerabilityDescription">info here</p>
                                 <p class="py-4">Affected Versions</p>
-                                <p class="text-sm py-0" id="AffectedVersions">info here</p>
+                                <p class="text-sm py-0" name="AffectedVersions">info here</p>
                                 <p class="py-4">Fixed Version</p>
-                                <p class="text-sm py-0" id="FixedVersion">info here</p>
+                                <p class="text-sm py-0" name="FixedVersion">info here</p>
                             </div>
                             <div class="flex-col p-10">
                                 <div class="radial-progress" role="progressbar"
-                                    style="--value:50; --size:150px; --thickness: 5px;" id="CVSSScore">CVSS Score: 50%</div>
+                                    style="--value:50; --size:150px; --thickness: 5px;" name="CVSSScore">CVSS Score: 50%</div>
                             </div>
                         </div>
                         <form method="dialog" class="modal-backdrop">
@@ -735,11 +735,7 @@
     </div>
 </body>
 <footer> 
-    <!-- <div class="container mx-auto flex justify-center">
-        <div class="w-full banner flex items-center overflow-hidden p-0">
-            <span id="bannerText" class="inline-block">The Homework Club</span>
-        </div>
-    </div> -->
+    
 <div class="footer px-48 p-10 bg-neutral text-neutral-content"> 
 
     <aside>
@@ -771,42 +767,6 @@
         </div>
     </nav>
 </footer>
-<!-- <script>
-    // JavaScript to animate the sliding effect
-    window.onload = function() {
-        const bannerText = document.getElementById('bannerText');
-        const text = bannerText.innerText;
-        const textWidth = bannerText.offsetWidth;
-        const bannerWidth = window.innerWidth;
-        const duration = (bannerWidth + textWidth) / 10; // Adjust the speed as needed
 
-        bannerText.style.transform = `translate(${-bannerWidth}px)`;
-
-        function animateText() {
-            bannerText.style.transition = 'transform ' + duration + 's linear';
-            bannerText.style.transform = `translate(${textWidth}px)`;
-            
-            setTimeout(() => {
-                bannerText.style.transition = 'none';
-                bannerText.style.transform = `translate(${-bannerWidth}px)`;
-                requestAnimationFrame(animateText);
-            }, duration * 1000);
-        }
-
-        animateText();
-    };
-</script>
-
-<style>
-    .banner {
-        background-color: rgb(250, 247, 245);
-        color: rgb(0, 0, 0);
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-        white-space: nowrap;
-        padding: 10px 20px;
-        transition: transform 1s ease-in-out;
-    }
-</style> -->
 
 </html>
