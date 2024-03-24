@@ -25,15 +25,12 @@
       <span name="description" class="typing inline-block"></span>
     </p>
   </div>
-  <div class="dropdown dropdown-bottom flex justify-center">
-    <div id="btnText" tabindex="0" role="button" class="btn m-1">Choose between Maven or PyPi</div>
-    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-      <div id="mySelect">
-        <li><a>Maven</a></li>
-        <li><a>PyPi</a></li>
-      </div>
-    </ul>
-  </div>
+  <div class="flex justify-center">
+    <select class="select select-bordered">
+        <option selected>Python (pip)</option>
+        <option>Java (Maven)</option>
+    </select>
+</div>
   <body>
     <div class="container mx-auto p-4 pb-16">
       <form action="/results" method="POST">
@@ -175,10 +172,5 @@
 
   typePhrase();
 
-  function myFunction() {
   
-    let buttonVal = document.getElementById("mySelect").value;
-    document.getElementById('btnTxt').innerHTML = buttonVal;
-      
-    }
 </script>
