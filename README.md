@@ -16,9 +16,9 @@ Our software wishes to address critical cybersecurity flaws that can be observed
 ## **FEATURES**
 - Dependency Analysis: DependGuard thoroughly examines your project's dependencies, identifying potential security vulnerabilities.
 - Security Insights: Receive detailed reports on vulnerabilities found in your project's dependencies, along with recommendations for remediation.
-- Ease-of-use: The website is an ad-hoc tool that is all hosted on a website. The use of DaisyUI enables it to have a modern design while being just as effective. It is an all-in-one tool that allows for both github link entries and requirements.text (accepts many other file types). It identifies the community score, the dependency score, and many other statistics. If a vulnerability is found, all known fixes in the community are provided on the website. All information, necessary or not, is found and reported to the user.
+- Ease-of-use: The website is an ad-hoc tool that is all hosted on a website. The use of DaisyUI enables it to have a modern design while being just as effective. It identifies the community score, the dependency score, and many other statistics. If a vulnerability is found, all known fixes in the community are provided on the website. All information, necessary or not, is found and reported to the user.
 - Privacy: There is no data collected on the user and everything is entirely open source. It does not need to be installed on the user's device in order to function.
-- Universality: We use multilpe APIs and databases to create a functional project that covers everything AND MORE that other existing solutions use. 
+- Universality: We use multilpe APIs and databases to create a functional project that covers everything AND MORE that other existing solutions use. It supports input via GitHub links or various file formats like requirements.txt. Users do not need to do anything in addition to their project other than simply providing the necessary information that they should already know. 
 
 ## **HOW ARE WE UNIQUE?**
 One of the most direct comparisons of our project to an existing one is called DependaBot. It automatically creates pull requests to update repositories when a new one is available but it fails to have basic cybersecurity elements. 
