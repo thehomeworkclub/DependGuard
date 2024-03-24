@@ -10,10 +10,11 @@
 </head>
 
 <body class="overflow-y-scroll">
+
     <div class=" flex flex-row items-center justify-center p-4 pt-8">
 
         <div class="radial-progress" role="progressbar" style="--value:100; --size:200px; --thickness: 1rem;">100%</div>
-        <h1 class="text-6xl font-bold animate-bounce" style="padding-left: 50px; ">file.name.file.type.a.b.c.xyz</h1>
+        <h1 class="text-6xl font-bold animate-pulse" style="padding-left: 50px; ">file.name.file.type.a.b.c.xyz</h1>
 
     </div>
     <div class="flex flex-col">
@@ -590,7 +591,14 @@
         <div class="pt-8"></div>
     </div>
 </body>
-<footer class="footer px-48 p-10 bg-neutral text-neutral-content">
+<footer> 
+    <!-- <div class="container mx-auto flex justify-center">
+        <div class="w-full banner flex items-center overflow-hidden p-0">
+            <span id="bannerText" class="inline-block">The Homework Club</span>
+        </div>
+    </div> -->
+<div class="footer px-48 p-10 bg-neutral text-neutral-content"> 
+
     <aside>
         <img width="50" height="50" viewBox="0 0 24 24" src="smalllogo.png" fill-rule="evenodd" clip-rule="evenodd"
             class="fill-current">
@@ -620,5 +628,42 @@
         </div>
     </nav>
 </footer>
+<!-- <script>
+    // JavaScript to animate the sliding effect
+    window.onload = function() {
+        const bannerText = document.getElementById('bannerText');
+        const text = bannerText.innerText;
+        const textWidth = bannerText.offsetWidth;
+        const bannerWidth = window.innerWidth;
+        const duration = (bannerWidth + textWidth) / 10; // Adjust the speed as needed
+
+        bannerText.style.transform = `translate(${-bannerWidth}px)`;
+
+        function animateText() {
+            bannerText.style.transition = 'transform ' + duration + 's linear';
+            bannerText.style.transform = `translate(${textWidth}px)`;
+            
+            setTimeout(() => {
+                bannerText.style.transition = 'none';
+                bannerText.style.transform = `translate(${-bannerWidth}px)`;
+                requestAnimationFrame(animateText);
+            }, duration * 1000);
+        }
+
+        animateText();
+    };
+</script>
+
+<style>
+    .banner {
+        background-color: rgb(250, 247, 245);
+        color: rgb(0, 0, 0);
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        white-space: nowrap;
+        padding: 10px 20px;
+        transition: transform 1s ease-in-out;
+    }
+</style> -->
 
 </html>
