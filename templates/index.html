@@ -10,6 +10,8 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
   </head>
 
   <div class="text-center my-5 px-10">
@@ -24,10 +26,12 @@
     </p>
   </div>
   <div class="dropdown dropdown-bottom flex justify-center">
-    <div tabindex="0" role="button" class="btn m-1">Choose between Maven or PyPi</div>
+    <div id="btnText" tabindex="0" role="button" class="btn m-1">Choose between Maven or PyPi</div>
     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-      <li><a>Maven</a></li>
-      <li><a>PyPi</a></li>
+      <div id="mySelect">
+        <li><a>Maven</a></li>
+        <li><a>PyPi</a></li>
+      </div>
     </ul>
   </div>
   <body>
@@ -170,4 +174,11 @@
   }
 
   typePhrase();
+
+  function myFunction() {
+  
+    let buttonVal = document.getElementById("mySelect").value;
+    document.getElementById('btnTxt').innerHTML = buttonVal;
+      
+    }
 </script>
