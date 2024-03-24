@@ -1,5 +1,5 @@
 # DependGuard
-Our Project for the 2024 CrackTheCode Hackathon @ Concordia University
+Our Project for the 2024 CrackTheCode Hackathon @ Concordia University.
 
 DependGuard is a powerful tool designed to enhance the security of your GitHub projects by analyzing dependencies and providing valuable insights. With DependGuard, you can ensure that your project's dependencies are up-to-date, secure, and free from vulnerabilities. DependGuard is aimed at improving the usability and user experience involved with OSS (Open Source Softwares). In an era where open-source software (OSS) dominates development landscapes, the need to ensure the integrity and security of these projects directly correlates to success.
 
@@ -25,7 +25,7 @@ One of the most direct comparisons of our project to an existing one is called D
 Blackduck finds vulnerabilities but it won't tell you how active the community is. Our project isn't a static code analyzer like black duck. It's meant to provide all the information possible, and expose underlying issues like in transitive dependencies that Blackduck may not detect. Our project is exclusively open source and costs nothing to open source users, enabling and improving the open source community. 
 
 ## **STEPS TO USE:**
-1. Access the webpage
-2. Upload a github link or a specific file specifying repositories and packages needed
-3. Submit this to the website for processing
-4. Look at the results and fix vulnerabilities found
+1. Access the webpage.
+2. Upload a github link or a specific file specifying repositories and packages needed.
+3. Submit to the website for processing.
+4. Look at the results and fix vulnerabilities found.
