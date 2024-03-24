@@ -1,6 +1,7 @@
 # app.py
 
 from flask import Flask, render_template, send_from_directory, request
+import utils.utils
 
 app = Flask(__name__)
 
@@ -15,14 +16,37 @@ def banner_img():
 def results():
     form_dt_github = request.form.get("SubmitRepoLinkText")
     form_dt_file = request.form.get("SubmitDependencyFile")
-    # TODO: Load page w/ no info -> loading symbol 
+    dt_op_git = form_dt_github.split("/")[3] + "/" + form_dt_github.split("/")[4]
+    return render_template("results.html", github=form_dt_github, name=dt_op_git)
 
-# TODO: Create new API Routes to do the following:
-# TODO: Grab Github link -> Parse through parser
-# TODO: Enter github link into api -> get files -> get requirements.txt, pom.xml
-# TODO: If req.txt -> parse reqs and feed into vauln test (figure out if in cache/not)
-# TODO: If pom.xml -> parse reqs and feed into vauln test (figure out if in cache/not)
-    return "0"
+@app.route("/api/get_deps")
+def rt():
+    qrs = request.args.get("github")
+    reqs = utils.utils.get_reqs_github(qrs)
+    return {"data": reqs}
+@app.route("/api/get_subdeps")
+def mks():
+    qrs = request.args.get("dep")
+    ver = request.args.get("ver")
+    reqs = utils.utils.get_dep_tree(qrs, ver)
+    reqs1 = utils.utils.get_flat_tree(qrs)
+    return {"data": reqs1}
+@app.route('/api/get_subdeps/tv')
+def mkstv():
+    qrs = request.args.get("dep")
+    ver = request.args.get("ver")
+    reqs = utils.utils.get_tree_rec(qrs)
+    return {"data": reqs}
+
+@app.route("/api/get_scores")
+def get_scores_route():
+    library = request.args.get("dep")
+    version = request.args.get("ver")
+    if not library or not version:
+        return {"error": "Please provide both 'library' and 'version' query parameters."}, 400
+    scores = utils.utils.createscore(library, version)
+    return {"data": scores}
+
 
 if __name__ == '__main__':
     app.run(debug=True)

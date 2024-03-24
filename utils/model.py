@@ -13,6 +13,8 @@ class BaseModel(Model):
 class Dblk(BaseModel):
     package = CharField(null=True)
     subdeps = AnyField(null=True)
+    version = TextField(null=True)
+    v_behind = TextField(null=True)
     # TODO: Create version itemary and enter it in
 
     class Meta:
