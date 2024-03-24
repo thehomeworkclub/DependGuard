@@ -19,22 +19,22 @@
     </div>
     <div class="flex flex-col">
         <div class="h-48 flex flex-row-reverse space-x-8 space-x-reverse items-center justify-center px-8 pt-8">
-            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;">
-                <div class="card-title">Lib Name</div>
-                <div class="card-body p-0 m-0">
+            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;" id="card">
+                <div class="card-title" id="LibName">Lib Name</div>
+                <div class="card-body p-0 m-0" id="LibVersion">
                     Lib Version
                 </div>
                 <div class="justify-center items-center text-center">
                     <button class="btn w-1/3" onclick="my_modal_1.showModal()">More Details</button>
                     <dialog id="my_modal_1" class="modal">
                         <div class="modal-box">
-                            <h3 class="font-bold text-lg">Hyperlinked Lib name with version</h3>
+                            <a class="font-bold text-lg" href="hi" id="LibNameLinked">Hyperlinked Lib name with version</a>
                             <p class="py-4">Oldest Transitive Dependencies:</p>
-                            <p class="text-sm py-0">info here</p>
+                            <p class="text-sm py-0" id="OldestTransitiveDependency">info here</p>
                             <p class="py-4">Last Update:</p>
-                            <p class="text-sm py-0">date here</p>
+                            <p class="text-sm py-0" id="LastUpdate">date here</p>
                             <p class="py-4">Contributors:</p>
-                            <p class="text-sm py-0">names</p>
+                            <p class="text-sm py-0" id="Contributors">names</p>
                         </div>
                         <form method="dialog" class="modal-backdrop">
                             <button>close</button>
@@ -46,17 +46,17 @@
                             <div class="flex-col">
                                 <h3 class="font-bold text-lg">Vulnerabilities</h3>
                                 <p class="py-4">CVE ID</p>
-                                <p class="text-sm py-0">info here</p>
+                                <p class="text-sm py-0" id="CVEID">info here</p>
                                 <p class="py-4">Vulnerability Description</p>
-                                <p class="text-sm py-0">info here</p>
+                                <p class="text-sm py-0" id="VulnerabilityDescription">info here</p>
                                 <p class="py-4">Affected Versions</p>
-                                <p class="text-sm py-0">info here</p>
+                                <p class="text-sm py-0" id="AffectedVersions">info here</p>
                                 <p class="py-4">Fixed Version</p>
-                                <p class="text-sm py-0">info here</p>
+                                <p class="text-sm py-0" id="FixedVersion">info here</p>
                             </div>
                             <div class="flex-col p-10">
                                 <div class="radial-progress" role="progressbar"
-                                    style="--value:50; --size:150px; --thickness: 5px;">CVSS Score: 50%</div>
+                                    style="--value:50; --size:150px; --thickness: 5px;" id="CVSSScore">CVSS Score: 50%</div>
                             </div>
                         </div>
                         <form method="dialog" class="modal-backdrop">
@@ -421,6 +421,149 @@
                     </dialog>
                     <button class="btn" onclick="my_modal_21.showModal()">Vulnerability Info</button>
                     <dialog id="my_modal_21" class="modal">
+                        <div class="modal-box flex">
+                            <div class="flex-col">
+                                <h3 class="font-bold text-lg">Vulnerabilities</h3>
+                                <p class="py-4">CVE ID</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Vulnerability Description</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Affected Versions</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Fixed Version</p>
+                                <p class="text-sm py-0">info here</p>
+                            </div>
+                            <div class="flex-col p-10">
+                                <div class="radial-progress" role="progressbar"
+                                    style="--value:50; --size:150px; --thickness: 5px;">CVSS Score: 50%</div>
+                            </div>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                </div>
+            </div>
+        </div>
+        <div class="h-48 flex flex-row-reverse space-x-8 space-x-reverse items-center justify-center px-8 pt-8">
+            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;">
+                <div class="card-title">Lib Name</div>
+                <div class="card-body p-0 m-0">
+                    Lib Version
+                </div>
+                <div class="justify-center items-center text-center">
+
+                    <button class="btn w-1/3" onclick="my_modal_10.showModal()">More Details</button>
+                    <dialog id="my_modal_10" class="modal">
+                        <div class="modal-box">
+                            <h3 class="font-bold text-lg">Hyperlinked Lib name with version</h3>
+                            <p class="py-4">Oldest Transitive Dependencies:</p>
+                            <p class="text-sm py-0">info here</p>
+                            <p class="py-4">Last Update:</p>
+                            <p class="text-sm py-0">date here</p>
+                            <p class="py-4">Contributors:</p>
+                            <p class="text-sm py-0">names</p>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                    <button class="btn" onclick="my_modal_22.showModal()">Vulnerability Info</button>
+                    <dialog id="my_modal_22" class="modal">
+                        <div class="modal-box flex">
+                            <div class="flex-col">
+                                <h3 class="font-bold text-lg">Vulnerabilities</h3>
+                                <p class="py-4">CVE ID</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Vulnerability Description</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Affected Versions</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Fixed Version</p>
+                                <p class="text-sm py-0">info here</p>
+                            </div>
+                            <div class="flex-col p-10">
+                                <div class="radial-progress" role="progressbar"
+                                    style="--value:50; --size:150px; --thickness: 5px;">CVSS Score: 50%</div>
+                            </div>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                </div>
+            </div>
+            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;">
+                <div class="card-title">Lib Name</div>
+                <div class="card-body p-0 m-0">
+                    Lib Version
+                </div>
+                <div class="justify-center items-center text-center">
+
+                    <button class="btn w-1/3" onclick="my_modal_11.showModal()">More Details</button>
+                    <dialog id="my_modal_11" class="modal">
+                        <div class="modal-box">
+                            <h3 class="font-bold text-lg">Hyperlinked Lib name with version</h3>
+                            <p class="py-4">Oldest Transitive Dependencies:</p>
+                            <p class="text-sm py-0">info here</p>
+                            <p class="py-4">Last Update:</p>
+                            <p class="text-sm py-0">date here</p>
+                            <p class="py-4">Contributors:</p>
+                            <p class="text-sm py-0">names</p>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                    <button class="btn" onclick="my_modal_23.showModal()">Vulnerability Info</button>
+                    <dialog id="my_modal_23" class="modal">
+                        <div class="modal-box flex">
+                            <div class="flex-col">
+                                <h3 class="font-bold text-lg">Vulnerabilities</h3>
+                                <p class="py-4">CVE ID</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Vulnerability Description</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Affected Versions</p>
+                                <p class="text-sm py-0">info here</p>
+                                <p class="py-4">Fixed Version</p>
+                                <p class="text-sm py-0">info here</p>
+                            </div>
+                            <div class="flex-col p-10">
+                                <div class="radial-progress" role="progressbar"
+                                    style="--value:50; --size:150px; --thickness: 5px;">CVSS Score: 50%</div>
+                            </div>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                </div>
+            </div>
+            <div class="h-full card bg-primary text-primary-content card-body p-4 m-0" style="width: 30%;">
+                <div class="card-title">Lib Name</div>
+                <div class="card-body p-0 m-0">
+                    Lib Version
+                </div>
+                <div class="justify-center items-center text-center">
+
+                    <button class="btn w-1/3" onclick="my_modal_12.showModal()">More Details</button>
+                    <dialog id="my_modal_12" class="modal">
+                        <div class="modal-box">
+                            <h3 class="font-bold text-lg">Hyperlinked Lib name with version</h3>
+                            <p class="py-4">Oldest Transitive Dependencies:</p>
+                            <p class="text-sm py-0">info here</p>
+                            <p class="py-4">Last Update:</p>
+                            <p class="text-sm py-0">date here</p>
+                            <p class="py-4">Contributors:</p>
+                            <p class="text-sm py-0">names</p>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                    <button class="btn" onclick="my_modal_24.showModal()">Vulnerability Info</button>
+                    <dialog id="my_modal_24" class="modal">
                         <div class="modal-box flex">
                             <div class="flex-col">
                                 <h3 class="font-bold text-lg">Vulnerabilities</h3>
