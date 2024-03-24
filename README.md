@@ -49,8 +49,11 @@ DependGuard is an open-source project, and we welcome contributions from the com
 
 ## Meet The Team
 Left Most - Priansh Mittra, Database manager and backend engineer
+
 Second to Leftmost - Sebastian Alexis, Research director and backend engineer
+
 Second to Rightmost - Aryan Jain, Pitch head and frontend engineer
+
 Rightmost - Andy Zhang, Media coordinator and frontend engineer
 
 ![](https://cdn.discordapp.com/attachments/1203566081030094858/1221582275225850028/IMG_6726.jpg?ex=66131a26&is=6600a526&hm=6a89f05cb66cd89aee09fe19338536f31375fcbaa89f113ff0cbb787efea1a5b&)
