@@ -1,62 +1,63 @@
-import aiohttp
-import asyncio
-import json
-from pathlib import Path
-import sys
+from igraph import Graph, plot
+import cairo
 
-if sys.platform == 'win32':
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-LIBRARIES_IO_API_KEYS = [
-    '7165ca9cc733d1abd00a87a930d9d714',
-    '10b8f9c2a81b273a6c0db61fb96fb212',
-    '53d6ec55fcbfdedb9ac6bd44ae42050c'
-]
-API_KEY_INDEX = 0
-SEM = asyncio.Semaphore(10)  # Adjust according to your rate limit allowance
+# Example dependency data structure representing a dependency tree
+dependencies = {
+    "project": {"certifi": "2024.2.2", "requests": "2.25.1"},
+    "requests": {"urllib3": "1.26.3", "idna": "2.10", "chardet": "3.0.4"},
+    "urllib3": {"brotli": None},  # Example where a dependency has no further dependencies
+    "idna": {},  # No dependencies
+    "chardet": {},  # No dependencies
+    "brotli": {}  # No dependencies
+}
 
-async def fetch_runtime_dependencies(session, library, version):
-    global API_KEY_INDEX
-    try:
-        async with SEM:
-            api_key = LIBRARIES_IO_API_KEYS[API_KEY_INDEX]
-            url = f'https://libraries.io/api/pypi/{library}/{version}/dependencies?api_key={api_key}'
-            async with session.get(url) as response:
-                if response.status == 429:
-                    API_KEY_INDEX = (API_KEY_INDEX + 1) % len(LIBRARIES_IO_API_KEYS)
-                    return await fetch_runtime_dependencies(session, library, version)
-                response.raise_for_status()
-                data = await response.json()
-                return [(dep['name'], dep['requirements'], dep['latest_stable']) for dep in data['dependencies'] if dep['kind'] == 'runtime']
-    except Exception as e:
-        print(f"Failed to fetch data for {library}: {str(e)}")
-        return []
 
-async def fetch_dependencies_tree(session, library, version, level=0):
-    deps = await fetch_runtime_dependencies(session, library, version)
-    print("finding dependencies for" + library + " - " + version)
-    tree = {}
-    for name, _, latest_stable in deps:
-        sub_tree = await fetch_dependencies_tree(session, name, latest_stable, level + 1) if latest_stable else {}
-        tree[name] = {"version": latest_stable, "dependencies": sub_tree}
-    return tree
 
-def format_dependency_tree(tree, prefix=''):
-    lines = []
-    for lib, info in tree.items():
-        line = f"{prefix}{lib} - {info['version']}"
-        lines.append(line)
-        if info['dependencies']:
-            lines.extend(format_dependency_tree(info['dependencies'], prefix + '  '))
-    return '\n'.join(lines)
+def build_graph(dep_dict):
+    """
+    Builds an igraph Graph object from a dependency dictionary.
 
-async def main(library, version):
-    async with aiohttp.ClientSession() as session:
-        dep_tree = await fetch_dependencies_tree(session, library, version)
-        formatted_tree = format_dependency_tree(dep_tree)
-        print(formatted_tree)
+    Args:
+        dep_dict: A dictionary representing the dependency tree.
 
-# Example usage
-library = "tensorflow"
-version = "2.15.0"
-asyncio.run(main(library, version))
+    Returns:
+        A tuple containing the igraph Graph object and a visual style dictionary for plotting.
+    """
+
+    g = Graph(directed=True)  # Create a directed graph
+    vertices = set()  # Set to store unique vertices
+    edges = []  # List to store edges
+
+    # Iterate through the dependency dictionary to add vertices and edges
+    for parent, deps in dep_dict.items():
+        vertices.add(parent)
+        for child, version in deps.items():
+            vertices.add(child)
+            edges.append((parent, child))  # Add a directed edge from parent to child
+
+    g.add_vertices(list(vertices))  # Add vertices to the graph
+    g.add_edges(edges)  # Add edges to the graph
+
+    # Set labels and styles for the graph
+    g.vs["label"] = g.vs["name"]  # Use vertex names as labels
+    layout = g.layout("tree")  # Use a tree layout for visualization
+
+    visual_style = {
+        "vertex_size": 20,  # Vertex size
+        "vertex_color": "lightblue",  # Vertex color
+        "vertex_label": g.vs["label"],  # Vertex labels
+        "edge_arrow_size": 1,  # Edge arrow size
+        "layout": layout,  # Graph layout
+        "bbox": (300, 300),  # Size of the plot
+        "margin": 20  # Margin around the plot
+    }
+
+    return g, visual_style
+
+
+# Build the graph from the dependency dictionary
+g, visual_style = build_graph(dependencies)
+
+# Plot the graph and save it as "dependency_tree.png"
+plot(g, "dependency_tree.png", **visual_style)

@@ -1,7 +1,8 @@
 # app.py
 
-from flask import Flask, render_template, send_from_directory, request
+from flask import Flask, render_template, send_from_directory, request, jsonify
 import utils.utils
+from utils.vuln import *
 
 app = Flask(__name__)
 
@@ -29,7 +30,8 @@ def mks():
     qrs = request.args.get("dep")
     ver = request.args.get("ver")
     reqs = utils.utils.get_dep_tree(qrs, ver)
-    reqs1 = utils.utils.get_flat_tree(qrs)
+    reqs1 = utils.utils.get_tree_rec(qrs)
+    print(reqs1)
     return {"data": reqs1}
 @app.route('/api/get_subdeps/tv')
 def mkstv():
@@ -46,6 +48,20 @@ def get_scores_route():
         return {"error": "Please provide both 'library' and 'version' query parameters."}, 400
     scores = utils.utils.createscore(library, version)
     return {"data": scores}
+
+
+@app.route('/api/get_vuln_data')
+def get_vuln_data_route():
+    # Get library name, version, and package manager from query parameters
+    library = request.args.get('dep')
+    version = request.args.get('ver')
+    pckmanager = request.args.get('pckmanager', 'pypi')  # Default to 'pypi'
+
+    # Call the get_vuln_data function to fetch vulnerability data
+    vuln_data = get_vuln_data(library, version, pckmanager)
+
+    # Return the vulnerability data as a JSON response
+    return jsonify({'data': vuln_data})
 
 
 if __name__ == '__main__':
